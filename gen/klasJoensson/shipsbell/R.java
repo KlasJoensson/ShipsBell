@@ -1020,6 +1020,7 @@ containing a value of this type.
         public static final int duty_period=0x7f050045;
         public static final int edit_query=0x7f050030;
         public static final int end=0x7f050013;
+        public static final int engLangButton=0x7f050048;
         public static final int expand_activities_button=0x7f050026;
         public static final int expanded_menu=0x7f05002c;
         public static final int home=0x7f050014;
@@ -1039,8 +1040,7 @@ containing a value of this type.
         public static final int progress_circular=0x7f050018;
         public static final int progress_horizontal=0x7f050019;
         public static final int radio=0x7f05002f;
-        public static final int radio0=0x7f050048;
-        public static final int radio1=0x7f050049;
+        public static final int seLangButton=0x7f050049;
         public static final int search_badge=0x7f050032;
         public static final int search_bar=0x7f050031;
         public static final int search_button=0x7f050033;

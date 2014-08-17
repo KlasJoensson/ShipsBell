@@ -115,20 +115,22 @@
     </RadioGroup>
 
     <RadioButton
-        android:id="@+id/radio0"
+        android:id="@+id/engLangButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/radio1"
+        android:layout_alignLeft="@+id/seLangButton"
         android:layout_alignTop="@+id/language_headline"
         android:checked="true"
+        android:onClick="onRadioButtonClicked"
         android:text="@string/language_eng" />
 
     <RadioButton
-        android:id="@+id/radio1"
+        android:id="@+id/seLangButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/radio0"
+        android:layout_below="@+id/engLangButton"
         android:layout_toLeftOf="@+id/bell6"
+        android:onClick="onRadioButtonClicked"
         android:text="@string/language_se" />
 
 </RelativeLayout>

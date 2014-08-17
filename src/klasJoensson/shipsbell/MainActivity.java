@@ -9,6 +9,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RadioButton;
+import android.widget.TextView;
 import android.os.Build;
 
 public class MainActivity extends ActionBarActivity {
@@ -60,5 +62,34 @@ public class MainActivity extends ActionBarActivity {
 			return rootView;
 		}
 	}
-
+	
+	/**
+	 * Handles the the language radio buttons.
+	 * @param view
+	 */
+	public void onRadioButtonClicked(View view) {
+	   
+	    boolean checked = ((RadioButton) view).isChecked();
+	    TextView langHeadLine = (TextView) findViewById(R.id.language_headline);
+	    // Check which radio button was clicked
+	    switch(view.getId()) {
+	        case R.id.engLangButton:
+	            if (checked)
+	                // Has chosen English as language
+	            	langHeadLine.setText(R.string.language_headline_eng);
+	            break;
+	        case R.id.seLangButton:
+	            if (checked) 
+	                // Has chosen Swedish as language
+	            	langHeadLine.setText(R.string.language_headLine_se);
+	            break;
+	    }
+	    
+	    updateDutyPeriod();
+	}
+	
+	private void updateDutyPeriod() {
+		TextView dutyPeriod = (TextView) findViewById(R.id.duty_period);
+		
+	}
 }
