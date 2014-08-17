@@ -1,5 +1,8 @@
 package klasJoensson.shipsbell;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -88,8 +91,49 @@ public class MainActivity extends ActionBarActivity {
 	    updateDutyPeriod();
 	}
 	
+	/**
+	 * Updates the name of the duty period.
+	 */
 	private void updateDutyPeriod() {
 		TextView dutyPeriod = (TextView) findViewById(R.id.duty_period);
+		boolean engSel = ((RadioButton) findViewById(R.id.engLangButton)).isChecked();
+		int currHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
 		
+		if (currHour < 4) {
+			if (engSel)
+				dutyPeriod.setText(R.string.duty_period5_eng);
+			else
+				dutyPeriod.setText(R.string.duty_period5_se);
+		} else if (currHour < 8) {
+			if (engSel)
+				dutyPeriod.setText(R.string.duty_period6_eng);
+			else
+				dutyPeriod.setText(R.string.duty_period6_se);
+		} else if (currHour < 12) {
+			if (engSel)
+				dutyPeriod.setText(R.string.duty_period0_eng);
+			else
+				dutyPeriod.setText(R.string.duty_period0_se);
+		} else if (currHour < 16) {
+			if (engSel)
+				dutyPeriod.setText(R.string.duty_period1_eng);
+			else
+				dutyPeriod.setText(R.string.duty_period1_se);
+		} else if (currHour < 18) {
+			if (engSel)
+				dutyPeriod.setText(R.string.duty_period2_eng);
+			else
+				dutyPeriod.setText(R.string.duty_period2_se);
+		} else if (currHour < 20) {
+			if (engSel)
+				dutyPeriod.setText(R.string.duty_period3_eng);
+			else
+				dutyPeriod.setText(R.string.duty_period3_se);
+		} else {
+			if (engSel)
+				dutyPeriod.setText(R.string.duty_period4_eng);
+			else
+				dutyPeriod.setText(R.string.duty_period4_se);
+		}
 	}
 }
