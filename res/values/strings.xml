@@ -2,7 +2,31 @@
 <resources>
 
     <string name="app_name">Ship\'s Bell</string>
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-
+    <string name="hour_glass_desc">Hour glas image</string>
+	<string name="bell_img0">Show after one bell</string>
+	<string name="bell_img1">Show after two bells</string>
+	<string name="bell_img2">Show after three bells</string>
+	<string name="bell_img3">Show after four bells</string>
+	<string name="bell_img4">Show after five bells</string>
+	<string name="bell_img5">Show after six bells</string>
+	<string name="bell_img6">Show after seven bells</string>
+	<string name="duty_period0_se">Förmiddagsvakten</string>
+	<string name="duty_period1_se">Middagsvakten</string>
+	<string name="duty_period2_se">1:a plattvakten</string>
+	<string name="duty_period3_se">2:a plattvakten</string>
+	<string name="duty_period4_se">Första vakten</string>
+	<string name="duty_period5_se">Hundvakten</string>
+	<string name="duty_period6_se">Dagvakten</string>
+	<string name="duty_period0_eng">Forenoon watch</string>
+	<string name="duty_period1_eng">Afternoon watch</string>
+	<string name="duty_period2_eng">First dog watch</string>
+	<string name="duty_period3_eng">Last dog watch</string>
+	<string name="duty_period4_eng">First watch</string>
+	<string name="duty_period5_eng">Middle watch</string>
+	<string name="duty_period6_eng">Morning watch</string>
+	<string name="language_headLine_se">Språk:</string>
+	<string name="language_headline_eng">Language:</string>
+	<string name="language_se">Svenska</string>
+	<string name="language_eng">English</string>
 </resources>
