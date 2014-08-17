@@ -12,9 +12,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.os.Build;
+import android.provider.ContactsContract.CommonDataKinds.Im;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -27,6 +29,9 @@ public class MainActivity extends ActionBarActivity {
 			getSupportFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
+		
+		updateDutyPeriod();
+		updateBells();
 	}
 
 	@Override
@@ -135,5 +140,55 @@ public class MainActivity extends ActionBarActivity {
 			else
 				dutyPeriod.setText(R.string.duty_period4_se);
 		}
+	}
+	
+	/**
+	 * Calculates the number of bells to be shown.
+	 * 
+	 * @return The number of bells to show
+	 */
+	private int getNumberOfBells() {
+		int bells = 0;
+		int currHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+		
+		if (currHour < 4) {
+			bells = currHour * 2;
+		} else if (currHour < 8) {
+			bells = (currHour - 4) * 2;
+		} else if (currHour < 12) {
+			bells = (currHour - 8) * 2;
+		} else if (currHour < 16) {
+			bells = (currHour - 12) * 2;
+		} else if (currHour < 20) {
+			bells = (currHour - 16) * 2;
+		} else {
+			bells = (currHour - 20) * 2;
+		}
+		
+		if (Calendar.getInstance().get(Calendar.MINUTE) > 30)
+			bells++;
+		
+		return bells;
+	}
+	
+	/**
+	 * Updates the number of bells shown.
+	 */
+	private void updateBells() {
+		int nrOfBellsToShow = getNumberOfBells();
+		int[] bellsVisibility = new int[7];
+		for (int i=0;i<7;i++)
+			if (i>nrOfBellsToShow)
+				bellsVisibility[i] = ImageView.INVISIBLE;
+			else
+				bellsVisibility[i] = ImageView.VISIBLE;
+		
+		((ImageView) findViewById(R.id.bell1)).setVisibility(bellsVisibility[0]);
+		((ImageView) findViewById(R.id.bell2)).setVisibility(bellsVisibility[1]);
+		((ImageView) findViewById(R.id.bell3)).setVisibility(bellsVisibility[2]);
+		((ImageView) findViewById(R.id.bell4)).setVisibility(bellsVisibility[3]);
+		((ImageView) findViewById(R.id.bell5)).setVisibility(bellsVisibility[4]);
+		((ImageView) findViewById(R.id.bell6)).setVisibility(bellsVisibility[5]);
+		((ImageView) findViewById(R.id.bell7)).setVisibility(bellsVisibility[6]);
 	}
 }
