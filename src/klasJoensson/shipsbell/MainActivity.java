@@ -30,9 +30,6 @@ public class MainActivity extends ActionBarActivity {
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
 		
-		updateDutyPeriod();
-		updateBells();
-		updateHourGlass();
 	}
 
 	@Override
@@ -55,6 +52,14 @@ public class MainActivity extends ActionBarActivity {
 		return super.onOptionsItemSelected(item);
 	}
 
+	@Override
+	protected void onStart() {
+		super.onStart();
+		
+		updateDutyPeriod();
+		updateBells();
+		updateHourGlass();
+	}
 	/**
 	 * A placeholder fragment containing a simple view.
 	 */
@@ -68,6 +73,7 @@ public class MainActivity extends ActionBarActivity {
 				Bundle savedInstanceState) {
 			View rootView = inflater.inflate(R.layout.fragment_main, container,
 					false);
+
 			return rootView;
 		}
 	}
@@ -83,14 +89,18 @@ public class MainActivity extends ActionBarActivity {
 	    // Check which radio button was clicked
 	    switch(view.getId()) {
 	        case R.id.engLangButton:
-	            if (checked)
+	            if (checked) {
 	                // Has chosen English as language
 	            	langHeadLine.setText(R.string.language_headline_eng);
+	            	((RadioButton) findViewById(R.id.seLangButton)).setChecked(false);
+	            }
 	            break;
 	        case R.id.seLangButton:
-	            if (checked) 
+	            if (checked) { 
 	                // Has chosen Swedish as language
 	            	langHeadLine.setText(R.string.language_headLine_se);
+	            	((RadioButton) findViewById(R.id.engLangButton)).setChecked(false);
+	            }
 	            break;
 	    }
 	    
@@ -102,7 +112,7 @@ public class MainActivity extends ActionBarActivity {
 	 */
 	private void updateDutyPeriod() {
 		TextView dutyPeriod = (TextView) findViewById(R.id.duty_period);
-		boolean engSel = ((RadioButton) findViewById(R.id.engLangButton)).isChecked();
+		boolean engSel = ((RadioButton) findViewById(R.id.engLangButton)).isChecked();	
 		int currHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
 		
 		if (currHour < 4) {
