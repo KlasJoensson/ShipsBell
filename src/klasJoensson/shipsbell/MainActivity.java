@@ -105,6 +105,7 @@ public class MainActivity extends ActionBarActivity {
 	    }
 	    
 	    updateDutyPeriod();
+
 	}
 	
 	/**
@@ -189,10 +190,10 @@ public class MainActivity extends ActionBarActivity {
 		int nrOfBellsToShow = getNumberOfBells();
 		int[] bellsVisibility = new int[7];
 		for (int i=0;i<7;i++)
-			if (i>nrOfBellsToShow)
-				bellsVisibility[i] = ImageView.INVISIBLE;
-			else
+			if (i<nrOfBellsToShow)
 				bellsVisibility[i] = ImageView.VISIBLE;
+			else
+				bellsVisibility[i] = ImageView.INVISIBLE;
 		
 		((ImageView) findViewById(R.id.bell1)).setVisibility(bellsVisibility[0]);
 		((ImageView) findViewById(R.id.bell2)).setVisibility(bellsVisibility[1]);
