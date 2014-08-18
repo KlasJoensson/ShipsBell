@@ -32,6 +32,7 @@ public class MainActivity extends ActionBarActivity {
 		
 		updateDutyPeriod();
 		updateBells();
+		updateHourGlass();
 	}
 
 	@Override
@@ -190,5 +191,35 @@ public class MainActivity extends ActionBarActivity {
 		((ImageView) findViewById(R.id.bell5)).setVisibility(bellsVisibility[4]);
 		((ImageView) findViewById(R.id.bell6)).setVisibility(bellsVisibility[5]);
 		((ImageView) findViewById(R.id.bell7)).setVisibility(bellsVisibility[6]);
+	}
+	
+	/**
+	 * Shows which of the hour glass image to be showed.
+	 */
+	private void updateHourGlass() {
+		int min = Calendar.getInstance().get(Calendar.MINUTE);
+		int[] hourGlassVisibility = new int[6];
+		for (int i=0;i<6;i++)
+			hourGlassVisibility[i] = ImageView.INVISIBLE;
+		
+		if ((min >= 0 && min < 5) || (min >= 30 && min < 35) )
+			hourGlassVisibility[0] = ImageView.VISIBLE;
+		else if ((min >= 5 && min < 10) || (min >= 35 && min < 40) )
+			hourGlassVisibility[1] = ImageView.VISIBLE;
+		else if ((min >= 10 && min < 15) || (min >= 40 && min < 45) )
+			hourGlassVisibility[2] = ImageView.VISIBLE;
+		else if ((min >= 15 && min < 20) || (min >= 45 && min < 50) )
+			hourGlassVisibility[3] = ImageView.VISIBLE;
+		else if ((min >= 20 && min < 25) || (min >= 50 && min < 55) )
+			hourGlassVisibility[4] = ImageView.VISIBLE;
+		else
+			hourGlassVisibility[5] = ImageView.VISIBLE;
+		
+		((ImageView) findViewById(R.id.hour_glass0)).setVisibility(hourGlassVisibility[0]);
+		((ImageView) findViewById(R.id.hour_glass1)).setVisibility(hourGlassVisibility[1]);
+		((ImageView) findViewById(R.id.hour_glass2)).setVisibility(hourGlassVisibility[2]);
+		((ImageView) findViewById(R.id.hour_glass3)).setVisibility(hourGlassVisibility[3]);
+		((ImageView) findViewById(R.id.hour_glass4)).setVisibility(hourGlassVisibility[4]);
+		((ImageView) findViewById(R.id.hour_glass5)).setVisibility(hourGlassVisibility[5]);
 	}
 }
