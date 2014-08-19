@@ -1,12 +1,12 @@
 package klasJoensson.shipsbell;
 
 import java.util.Calendar;
-import java.util.Date;
 
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,6 +20,22 @@ import android.provider.ContactsContract.CommonDataKinds.Im;
 
 public class MainActivity extends ActionBarActivity {
 
+	Handler updateHandler = new Handler();
+	// Let's update i every minute
+	int delayMilisec = 60*1000;
+	
+	Runnable updateTasks = new Runnable() {
+		
+		@Override
+		public void run() {
+			updateDutyPeriod();
+			updateBells();
+			updateHourGlass();
+			
+			updateHandler.postDelayed(this, delayMilisec);
+		}
+	};
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -55,10 +71,8 @@ public class MainActivity extends ActionBarActivity {
 	@Override
 	protected void onStart() {
 		super.onStart();
-		
-		updateDutyPeriod();
-		updateBells();
-		updateHourGlass();
+
+		updateHandler.postDelayed(updateTasks, 0);
 	}
 	/**
 	 * A placeholder fragment containing a simple view.
@@ -233,4 +247,5 @@ public class MainActivity extends ActionBarActivity {
 		((ImageView) findViewById(R.id.hour_glass4)).setVisibility(hourGlassVisibility[4]);
 		((ImageView) findViewById(R.id.hour_glass5)).setVisibility(hourGlassVisibility[5]);
 	}
+	
 }
