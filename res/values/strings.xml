@@ -25,8 +25,9 @@
 	<string name="duty_period4_eng">First watch</string>
 	<string name="duty_period5_eng">Middle watch</string>
 	<string name="duty_period6_eng">Morning watch</string>
-	<string name="language_headLine_se">Språk:</string>
-	<string name="language_headline_eng">Language:</string>
+	<string name="language_headLine_se">Glas system:</string>
+	<string name="language_headline_eng">Glass system:</string>
 	<string name="language_se">Svenska</string>
-	<string name="language_eng">English</string>
+	<string name="language_eng">UK, after 1797</string>
+	<string name="language_eng2">UK, pre 1797</string>
 </resources>

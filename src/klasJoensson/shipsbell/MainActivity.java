@@ -23,6 +23,13 @@ public class MainActivity extends ActionBarActivity {
 	Handler updateHandler = new Handler();
 	// Let's update i every minute
 	int delayMilisec = 60*1000;
+	BellSystem bellSystem = BellSystem.UK;
+	
+	private enum BellSystem {
+		SWEDISH,
+		UK,
+		UK_OLD
+	}
 	
 	Runnable updateTasks = new Runnable() {
 		
@@ -106,16 +113,28 @@ public class MainActivity extends ActionBarActivity {
 	            if (checked) {
 	                // Has chosen English as language
 	            	langHeadLine.setText(R.string.language_headline_eng);
+	            	bellSystem = BellSystem.UK;
 	            	((RadioButton) findViewById(R.id.seLangButton)).setChecked(false);
+	            	((RadioButton) findViewById(R.id.ukOldLangButton)).setChecked(false);
 	            }
 	            break;
 	        case R.id.seLangButton:
 	            if (checked) { 
 	                // Has chosen Swedish as language
 	            	langHeadLine.setText(R.string.language_headLine_se);
+	            	bellSystem = BellSystem.SWEDISH;
 	            	((RadioButton) findViewById(R.id.engLangButton)).setChecked(false);
+	            	((RadioButton) findViewById(R.id.ukOldLangButton)).setChecked(false);
 	            }
 	            break;
+	        case R.id.ukOldLangButton:
+	            if (checked) {
+	                // Has chosen English as language
+	            	langHeadLine.setText(R.string.language_headline_eng);
+	            	bellSystem = BellSystem.UK_OLD;
+	            	((RadioButton) findViewById(R.id.seLangButton)).setChecked(false);
+	            	((RadioButton) findViewById(R.id.engLangButton)).setChecked(false);
+	            }
 	    }
 	    
 	    updateDutyPeriod();
@@ -127,7 +146,12 @@ public class MainActivity extends ActionBarActivity {
 	 */
 	private void updateDutyPeriod() {
 		TextView dutyPeriod = (TextView) findViewById(R.id.duty_period);
-		boolean engSel = ((RadioButton) findViewById(R.id.engLangButton)).isChecked();	
+		boolean engSel;
+		if (bellSystem.equals(BellSystem.SWEDISH))
+			engSel = false;
+		else
+			engSel = true;
+		
 		int currHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
 		
 		if (currHour < 4) {
@@ -186,7 +210,10 @@ public class MainActivity extends ActionBarActivity {
 		} else if (currHour < 16) {
 			bells = (currHour - 12) * 2;
 		} else if (currHour < 20) {
-			bells = (currHour - 16) * 2;
+			if (bellSystem.equals(BellSystem.UK) && currHour > 17)
+				bells = (currHour - 18) * 2;
+			else
+				bells = (currHour - 16) * 2;
 		} else {
 			bells = (currHour - 20) * 2;
 		}
