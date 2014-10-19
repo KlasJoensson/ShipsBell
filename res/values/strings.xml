@@ -30,4 +30,6 @@
 	<string name="language_se" translatable="false">Svenska</string>
 	<string name="language_eng" translatable="false">UK, after 1797</string>
 	<string name="language_eng2" translatable="false">UK, pre 1797</string>
+	<color name="silver">#C0C0C0</color>
+	<color name="black">#000000</color>
 </resources>
