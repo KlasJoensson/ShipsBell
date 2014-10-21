@@ -11,7 +11,7 @@
     tools:context="klasJoensson.shipsbell.MainActivity$PlaceholderFragment" >
 
     <ImageView
-        android:id="@+id/hour_glass0"
+        android:id="@+id/hour_glass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_toRightOf="@+id/hour_glass0"
+        android:layout_toRightOf="@+id/hour_glass"
         android:contentDescription="@string/bell_img0"
         android:src="@drawable/bell" />
 
@@ -89,7 +89,7 @@
         android:id="@+id/duty_period"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/hour_glass0"
+        android:layout_alignLeft="@+id/hour_glass"
         android:layout_below="@+id/bell7"
         android:layout_marginTop="29dp"
         android:text="@string/duty_period2_eng"
@@ -139,57 +139,12 @@
         android:onClick="onRadioButtonClicked"
         android:text="@string/language_eng2"
         android:textColor="@color/silver" />
-    
-    <ImageView
-        android:id="@+id/hour_glass1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/hour_glass0"
-        android:layout_toLeftOf="@+id/bell1"
-        android:contentDescription="@string/hour_glass_desc"
-        android:src="@drawable/hour_glass1" />
-    
-	<ImageView
-        android:id="@+id/hour_glass2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/hour_glass0"
-        android:layout_toLeftOf="@+id/bell1"
-        android:contentDescription="@string/hour_glass_desc"
-        android:src="@drawable/hour_glass2" />
-
-    <ImageView
-        android:id="@+id/hour_glass3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/hour_glass0"
-        android:layout_toLeftOf="@+id/bell1"
-        android:contentDescription="@string/hour_glass_desc"
-        android:src="@drawable/hour_glass3" />
-    
-	<ImageView
-        android:id="@+id/hour_glass4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/hour_glass0"
-        android:layout_toLeftOf="@+id/bell1"
-        android:contentDescription="@string/hour_glass_desc"
-        android:src="@drawable/hour_glass4" />
-	
-    <ImageView
-        android:id="@+id/hour_glass5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/hour_glass0"
-        android:layout_toLeftOf="@+id/bell1"
-        android:contentDescription="@string/hour_glass_desc"
-        android:src="@drawable/hour_glass5" />
 
     <TextView
         android:id="@+id/language_headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/hour_glass0"
+        android:layout_alignLeft="@id/hour_glass"
         android:layout_below="@+id/duty_period"
         android:layout_marginTop="26dp"
         android:text="@string/language_headline_eng"
