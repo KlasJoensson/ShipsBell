@@ -89,6 +89,15 @@ public class MainActivity extends ActionBarActivity {
 
 		updateHandler.postDelayed(updateTasks, 0);
 	}
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		
+		updateHandler.postDelayed(updateTasks, 0);
+	}
+
+	
 	/**
 	 * A placeholder fragment containing a simple view.
 	 */
